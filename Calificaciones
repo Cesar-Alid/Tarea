@@ -1,0 +1,25 @@
+#Calificaciones
+Math={
+    "Nathalia":10, #1
+    "Emmanuel":9,  #2
+    "Sol":9,       #3
+    "Aramis":10,   #4
+    "Mabel":8,     #5
+    "Jaime":8,     #6
+    "Sebastian":8, #7
+    "Pauleth":7,   #8
+    "Emely":8,     #9
+    "Sandra":10    #10
+}
+print("Diccionario original:")
+print(Math)
+Math_2={}
+Math_3={}
+for i in sorted(Math):
+    Math_2[i]=Math[i] 
+print("Diccionario ordenado por orden alfabetico:")  
+print(Math_2)
+for i in sorted(Math, reverse=True, key=lambda x: Math[x]):
+    Math_3[i]=Math[i]   
+print("Diccionario ordenado numericamente")
+print(Math_3)
