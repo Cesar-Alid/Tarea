@@ -1,0 +1,66 @@
+def agregar(invent,id, Nombre, Precio, Cantidad): #Funcion para agregar productos
+    Producto= {"id":id, "Nombre":Nombre, "Precio": Precio, "Cantidad": Cantidad}
+    invent.append(Producto)
+    return invent
+    
+def eliminar(invent,id_producto): #Funcion para eliminar productos
+    for i in range(0,len(invent)-1):
+        x=lista[i]
+        if x["id"]==id_producto:
+            lista.pop(i)
+    return lista
+
+def actualizar_cant(invent,id_producto,nueva_cantidad): #Funcion para editar cantidades
+    for i in (0,len(invent)-1):
+        x=invent[i]
+        if x['id'] == id_producto:
+            x["Cantidad"]=nueva_cantidad
+    return lista
+
+def actualizar_nom(invent,id_producto,nuevo_nombre): #Funcion para editar nombres
+    for i in (0,len(invent)-1):
+        x=invent[i]
+        if x['id'] == id_producto:
+            x["Nombre"]=nuevo_nombre
+    return lista
+
+inventario={"id":1, "Nombre":"Lapiz", "Precio": 3, "Cantidad": 50} #Inventario original
+
+lista=[inventario]
+
+x=input("Elija una de las siguientes opciones (agregar/eliminar/editar/ver): ")
+
+while x.lower() == "ver" or "agregar" or "eliminar" or "editar":
+    
+    if x.lower() == "ver":
+        while x.lower() == "ver":
+            print(lista)
+            x=input("Elija una de las siguientes opciones (agregar/eliminar/editar/ver): ")
+        
+    if x.lower() == "agregar":
+        while x.lower() == "agregar":
+            id_0=int(input("id: "))
+            nombre_0=input("Nombre: ")
+            precio_0=int(input("Precio: "))
+            cantidad_0=int(input("Cantidad: "))
+            nuevo_producto=agregar(lista,id_0,nombre_0,precio_0,cantidad_0)
+            x=input("Elija una de las siguientes opciones (agregar/eliminar/editar/ver): ")
+                    
+    if x.lower()=="eliminar":
+        while x.lower()=="eliminar":
+            id_1=int(input("id del producto: "))
+            eliminar_producto=eliminar(lista,id_1)   
+            x=input("Elija una de las siguientes opciones (agregar/eliminar/editar/ver): ")
+            
+    if x.lower()=="editar":
+        y=input("Que desea editar (cantidad/nombre): ")
+        if y.lower() == "cantidad":
+            id_2=int(input("id del producto: "))
+            new_cant=input("Nueva cantidad: ")
+            actualizar=actualizar_cant(lista,id_2,new_cant)
+            x=input("Elija una de las siguientes opciones (agregar/eliminar/editar/ver): ")
+        elif y.lower() == "nombre":
+            id_2=int(input("id del producto: "))
+            new_name=input("Nuevo nombre: ")
+            actualizar=actualizar_nom(lista,id_2,new_name)
+            x=input("Elija una de las siguientes opciones (agregar/eliminar/editar/ver): ")
