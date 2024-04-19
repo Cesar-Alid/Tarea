@@ -1,0 +1,82 @@
+import math
+
+class V3D:
+
+    def __init__(self,x,y,z):
+        self.x=x
+        self.y=y
+        self.z=z
+
+    def __add__(self,other):
+        return V3D(self.x + other.x, self.y + other.y, self.z + other.z)
+
+    def __sub__(self,other):
+        return V3D(self.x-other.x,self.y-other.y,self.z-other.z)
+
+    def __mul__(self, scalar):
+        return V3D(self.x*scalar,self.y*scalar,self.z*scalar)
+    
+    def dividir(self, scalar):
+        return V3D(self.x/scalar,self.y/scalar,self.z/scalar)
+
+    def dot_product(self,other):
+        return self.x*other.x + self.y*other.y + self.z*other.z
+    
+    def cross_product(self,other):
+        return (self.y*other.z - self.z*other.y)-(self.x*other.z - self.z-other.x)+(self.x*other.y - self.y*other.x)
+
+    def norma(self):
+        return math.sqrt((self.x*self.x + self.y*self.y + self.z*self.z))
+    
+    def angulo(self,other):
+        u=math.sqrt((self.x*self.x + self.y*self.y + self.z*self.z))
+        v=math.sqrt((other.x*other.x + other.y*other.y + other.z*other.z))
+        w=self.x*other.x + self.y*other.y + self.z*other.z
+        return math.acos(w/(u*v))
+    
+    def trip_product(self,other,andother):
+        return (self.x*other.y*andother.z + other.x*andother.y*self.z + andother.x*self.y*other.x)-(self.z*other.y*andother.x + other.z*andother.y*self.x + andother.z*self.y*other.x)
+        
+    def __repr__(self):
+        return f"({self.x},{self.y},{self.z})"
+    
+#Vectores
+v1=V3D(1,2,3)
+v2=V3D(4,5,6)
+v3=V3D(5,3,8)
+
+#Sumar vectores
+suma=v1 + v2
+print(f"{v1} + {v2} = {suma}")
+
+#Resta de vectores
+rest=v1-v2
+print(f"{v1} - {v2} = {rest}")
+
+#Multiplicacion escalar
+mult=v1*2
+print(f"{v1}{2} = {mult}")
+
+#Dividir escalar
+division=v1.dividir(2)
+print(f"{v1}/{2}={division}")
+
+#Product punto
+dot=v1.dot_product(v2)
+print(f"{v1} • {v2} = {dot}")
+
+#Producto cruz
+cross=v1.cross_product(v2)
+print(f"{v1} x {v2} = {cross}")
+
+#Norma
+Norm=v1.norma()
+print(f"|{v1}| = {Norm}")
+
+#Angulo
+theta=v1.angulo(v2)
+print(f"el angulo formado por {v1} y {v2} es {theta}")
+
+#Triple producto vectorial
+tp=v1.trip_product(v2,v3)
+print(f"{v1} • ({v2} x {v3}) = {tp}")
