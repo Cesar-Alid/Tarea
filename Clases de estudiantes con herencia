@@ -1,0 +1,48 @@
+class Estudiante:
+    def __init__(self,Nombre,Facultad,Carrera,Año,Num):
+        self.Nombre=Nombre
+        self.Facultad=Facultad
+        self.Carrera=Carrera
+        self.Año=Año
+        self.Num=Num
+        
+    def mostrar_info(self):
+        return f"Nombre: {self.Nombre}, Facultad: {self.Facultad}, Carrera: {self.Carrera}, Año: {self.Año}, Numero de estudiante: {self.Num}"
+
+class Fisica(Estudiante):
+    def __init__(self,Nombre,Facultad,Carrera,Año,Num,Formularios):
+        super().__init__(Nombre,Facultad,Carrera,Año,Num)
+        self.Formularios=Formularios
+    
+    def mostrar_info(self):
+        info_base=super().mostrar_info()
+        return f"{info_base}, Formularios: {self.Formularios}"
+
+class Electronica(Estudiante):
+    def __init__(self,Nombre,Facultad,Carrera,Año,Num,materiales):
+        super().__init__(Nombre,Facultad,Carrera,Año,Num)
+        self.materiales=materiales
+    
+    def mostrar_info(self):
+        info_base=super().mostrar_info()
+        return f"{info_base}, Materiales: {self.materiales}"
+
+class Matematicas(Estudiante):
+    def __init__(self,Nombre,Facultad,Carrera,Año,Num,libros):
+        super().__init__(Nombre,Facultad,Carrera,Año,Num)
+        self.libros=libros
+        
+    def mostrar_info(self):
+        info_base=super().mostrar_info()
+        return f"{info_base}, libros: {self.libros}"
+        
+
+
+alumno1=Fisica("César","FCFM","Licenciatura en Fisica",1,20712332,["Gravitacion","Ondas"])
+print(alumno1.mostrar_info())
+
+alumno2=Electronica("Jona","FCFM","Licenciatura en Electronica",2,34656608,["Conectores","Sensores","Diodos"])
+print(alumno2.mostrar_info())
+
+alumno3=Matematicas("Nathalia","FCFM","Licenciatura en Matematicas",1,20715544,["Pogorelo","Spivak"])
+print(alumno3.mostrar_info())
