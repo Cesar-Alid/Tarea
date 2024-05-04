@@ -1,0 +1,40 @@
+import math
+
+class V2D:
+
+    def __init__(self,x,y):
+        self.x=x
+        self.y=y
+
+    def __add__(self,other):
+        return V2D(self.x + other.x, self.y + other.y)
+
+    def __sub__(self,other):
+        return V2D(self.x-other.x,self.y-other.y)
+
+    def __mul__(self, scalar):
+        return V2D(self.x*scalar,self.y*scalar)
+    
+    def dividir(self, scalar):
+        return V2D(self.x/scalar,self.y/scalar)
+
+    def dot_product(self,other):
+        return self.x*other.x + self.y*other.y
+    
+    def norma(self):
+        return math.sqrt((self.x*self.x + self.y*self.y))
+    
+    def angulo(self,other):
+        u=math.sqrt((self.x*self.x + self.y*self.y))
+        v=math.sqrt((other.x*other.x + other.y*other.y))
+        w=self.x*other.x + self.y*other.y
+        return math.acos(w/(u*v))
+    
+    def proj_in_x(self):
+        return V2D(self.x,0)
+    
+    def proj_in_y(self):
+        return V2D(0,self.y)
+    
+    def __repr__(self):
+        return f"({self.x},{self.y})"
