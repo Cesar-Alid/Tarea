@@ -1,48 +1,60 @@
 class Estudiante:
-    def __init__(self,Nombre,Facultad,Carrera,Año,Num):
+    def __init__(self,Nombre,Facultad,Carrera,Año,Num,calculo):
         self.Nombre=Nombre
         self.Facultad=Facultad
         self.Carrera=Carrera
         self.Año=Año
         self.Num=Num
+        self.calculo=calculo
         
     def mostrar_info(self):
-        return f"Nombre: {self.Nombre}, Facultad: {self.Facultad}, Carrera: {self.Carrera}, Año: {self.Año}, Numero de estudiante: {self.Num}"
+        return f"Datos de estudiante:\n\nNombre: {self.Nombre}\nFacultad: {self.Facultad}\nCarrera: {self.Carrera}\nAño: {self.Año}\nNumero de estudiante: {self.Num}\n\nCalificaciones:\n\nCalculo Diferencial: {self.calculo}"
 
 class Fisica(Estudiante):
-    def __init__(self,Nombre,Facultad,Carrera,Año,Num,Formularios):
-        super().__init__(Nombre,Facultad,Carrera,Año,Num)
-        self.Formularios=Formularios
+    def __init__(self,Nombre,Facultad,Carrera,Año,Num,calculo,analitica,algebra,metodos,mecanica):
+        super().__init__(Nombre,Facultad,Carrera,Año,Num,calculo)
+        self.analitica=analitica
+        self.algebra=algebra
+        self.metodos=metodos
+        self.mecanica=mecanica
+        
     
     def mostrar_info(self):
         info_base=super().mostrar_info()
-        return f"{info_base}, Formularios: {self.Formularios}"
-
-class Electronica(Estudiante):
-    def __init__(self,Nombre,Facultad,Carrera,Año,Num,materiales):
-        super().__init__(Nombre,Facultad,Carrera,Año,Num)
-        self.materiales=materiales
-    
-    def mostrar_info(self):
-        info_base=super().mostrar_info()
-        return f"{info_base}, Materiales: {self.materiales}"
+        return f"{info_base}\nGeometria analitica: {self.analitica}\nAlgebra y trigonometria: {self.algebra}\nMetodos experimentales: {self.metodos}\nMecanica: {self.mecanica}\n"
 
 class Matematicas(Estudiante):
-    def __init__(self,Nombre,Facultad,Carrera,Año,Num,libros):
-        super().__init__(Nombre,Facultad,Carrera,Año,Num)
-        self.libros=libros
+    def __init__(self,Nombre,Facultad,Carrera,Año,Num,calculo,analitica,euclidiana,taller,algebra):
+        super().__init__(Nombre,Facultad,Carrera,Año,Num,calculo)
+        self.analitica=analitica
+        self.algebra=algebra
+        self.euclidiana=euclidiana
+        self.taller=taller
+    
+    def mostrar_info(self):
+        info_base=super().mostrar_info()
+        return f"{info_base}\nGeometria analitica: {self.analitica}\nIntroduccion al algebra: {self.algebra}\nGeometria Euclidiana: {self.euclidiana}\nTaller de calculo: {self.taller}\n"
+
+class Electronica(Estudiante):
+    def __init__(self,Nombre,Facultad,Carrera,Año,Num,calculo,fisica,diseño,mediciones,fundamentos,electronica):
+        super().__init__(Nombre,Facultad,Carrera,Año,Num,calculo)
+        self.fisica=fisica
+        self.diseño=diseño
+        self.mediciones=mediciones
+        self.fundamentos=fundamentos
+        self.electronica=electronica
         
     def mostrar_info(self):
         info_base=super().mostrar_info()
-        return f"{info_base}, libros: {self.libros}"
+        return f"{info_base}\nFisica mecanica: {self.fisica}\nDiseño asistido por computadora: {self.diseño}\nMediciones electricas: {self.mediciones}\nFundamentos de programacion: {self.fundamentos}\nIntroduccion a la electronica{self.electronica}\n"
         
 
 
-alumno1=Fisica("César","FCFM","Licenciatura en Fisica",1,20712332,["Gravitacion","Ondas"])
+alumno1=Fisica("César","FCFM","Licenciatura en Fisica",1,20712332,10,9,9,8,9)
 print(alumno1.mostrar_info())
 
-alumno2=Electronica("Jona","FCFM","Licenciatura en Electronica",2,34656608,["Conectores","Sensores","Diodos"])
+alumno2=Electronica("Jona","FCFM","Licenciatura en Electronica",2,34656608,9,9,8,10,9,9)
 print(alumno2.mostrar_info())
 
-alumno3=Matematicas("Nathalia","FCFM","Licenciatura en Matematicas",1,20715544,["Pogorelo","Spivak"])
+alumno3=Matematicas("Nathalia","FCFM","Licenciatura en Matematicas",1,20715544,10,8,7,10,9)
 print(alumno3.mostrar_info())
