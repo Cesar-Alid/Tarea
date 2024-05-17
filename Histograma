@@ -1,0 +1,51 @@
+import random as r
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+n=1000
+
+lista1=[]
+lista2=[]
+lista3=[]
+lista4=[]
+lista5=[]
+lista6=[]
+lista7=[]
+lista8=[]
+lista9=[]
+lista0=[]
+
+for i in range(n+1):
+    num= r.random()
+    if num < 0.1:
+        lista1.append(num)
+    elif num < 0.2:
+        lista2.append(num)
+    elif num < 0.3:
+        lista3.append(num)
+    elif num < 0.4:
+        lista4.append(num)
+    elif num < 0.5:
+        lista5.append(num)
+    elif num < 0.6:
+        lista6.append(num)
+    elif num < 0.7:
+        lista7.append(num)
+    elif num < 0.8:
+        lista8.append(num)
+    elif num < 0.9:
+        lista9.append(num)
+    elif num < 1:
+        lista0.append(num)
+        
+data={
+    "Intervalos":["0.0-0.1","0.1-0.2","0.2-0.3","0.3-0.4","0.4-0.5","0.5-0.6","0.6-0.7","0.7-0.8","0.8-0.9","0.9-1.0"],
+    "Frecuencia":[len(lista1),len(lista2),len(lista3),len(lista4),len(lista5),len(lista6),len(lista7),len(lista8),len(lista9),len(lista0)]
+}
+
+df=pd.DataFrame(data=data)
+
+sns.barplot(x="Intervalos",y="Frecuencia",data=df)
+
+plt.show()
