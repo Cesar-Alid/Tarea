@@ -1,0 +1,42 @@
+import turtle as tr
+
+e=0.1
+
+h=600
+b=900
+
+tr.setup(b,h)
+tr.title('Tiro parabólico')
+
+tr.shape('turtle')
+tr.color('black')
+
+tr.setworldcoordinates(0,-h,b,h)
+
+tr.goto(1000,0)
+tr.goto(-800,0)
+tr.penup()
+tr.goto(0,700)
+tr.pendown()
+tr.goto(0,-700)
+tr.penup()
+tr.goto(0,0)
+tr.pendown()
+
+tr.showturtle()
+
+t=0
+x=0
+y=0
+vx=20
+vy=40
+g=9.8
+
+px=lambda t: (x + vx*t)/e
+py=lambda t: (y + vy*t - g*t**2)/e
+
+while py(t)>=0:
+    tr.goto(px(t),py(t))
+    t=t+0.05
+
+tr.done()
