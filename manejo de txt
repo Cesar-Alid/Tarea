@@ -1,0 +1,12 @@
+#Imprimir elementos numericos de un txt separados por espacios como una lista
+
+lista=[]
+
+with open("Textos\\textos.txt") as archivo:
+    for i in archivo:
+        numeros = i.strip().split()
+        for num in numeros:
+            #print(num)
+            lista.append(int(num))
+            
+print(lista)
